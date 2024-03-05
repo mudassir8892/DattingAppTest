@@ -1,0 +1,55 @@
+F:\ngCoreProject
+dotnet -h
+dotnet new -h
+dotnet new list
+dotnet new sln
+ls
+dotnet new webapi -n API
+
+dotnet sln -h
+Description:
+  .NET modify solution file command
+
+dotnet sln add API
+dotnet sln list
+code .
+
+PS F:\ngCoreProject> cd api
+PS F:\ngCoreProject\api> dotnet run
+cntrl+c ======== stop project
+
+dotnet watch ======== run with hot reload
+
+
+dotnet dev-certs https --trust 
+
+
+https://www.nuget.org/packages/dotnet-ef/7.0.9
+-------------------------------------------------------
+dotnet tool install --global dotnet-ef --version 7.0.9
+dotnet tool update --global dotnet-ef --version 7.0.9
+dotnet tool list -g
+
+dotnet ef migrations -h
+dotnet ef migrations add InitialCreate -o Data/Migrations
+dotnet build
+dotnet ef database -h
+dotnet ef database update
+
+dotnet new list
+
+
+===========================================================
+git
+---
+https://git-scm.com/download/win (download git)
+syedali.mudassir8892@gmail.com
+mudassir786@
+git status
+git init
+dotnet new list
+dotnet new gitignore (appsetting.json file add to ignore)
+dotnet new globaljson
+
+
+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
