@@ -1,0 +1,20 @@
+<h1>{{title}}</h1>
+
+<ul>
+    <!-- @for (item of users; track item) {
+        <li>
+          {{ item.id }} - {{ item.userName }}
+        </li> 
+    } -->
+
+    @for (item of users; track item) {
+        <li>{{ item.id }} - {{ item.userName }}</li>
+        }
+        @empty {
+        <li>No items found</li>
+        }
+
+    <!-- <li *NgFor="let user of users">
+        {{ user.id }} - {{ user.userName }}
+    </li> -->
+</ul>
