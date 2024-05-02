@@ -19,7 +19,13 @@ PS F:\ngCoreProject\api> dotnet run
 cntrl+c ======== stop project
 
 dotnet watch ======== run with hot reload
+dotnet watch -h
+dotnet watch --no-hot-reload
 
+dotnet ef migrations add UserPasswordAdded
+
+dotnet ef migrations add usernamerequired
+dotnet ef migrations remove
 
 dotnet dev-certs https --trust 
 
@@ -38,6 +44,9 @@ dotnet ef database update
 
 dotnet new list
 
+
+System.IdentityModel.Tokens.Jwt by Microsoft
+install nuget packages
 
 
 npm install -g @angular/cli@17
