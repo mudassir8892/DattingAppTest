@@ -53,7 +53,17 @@ npm install -g @angular/cli@17
 ng version
 
 ng new client
+ng g --help
+ng g c nav --dry-run
+ng g c nav --skip-tests  --dry-run 
+ng g c nav --skip-tests
 ng server
+
+ng g s _services/account --skip-tests --dry-run 
+CREATE src/app/_services/account.service.ts (145 bytes)
+for create service
+NOTE: The "--dry-run" option means no changes were made.
+ng g s _services/account --skip-tests
 
 ===========================================================
 git
