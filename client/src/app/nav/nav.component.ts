@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 import { AccountService } from '../_services/account.service';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { error } from 'console';
 import { User } from '../_models/user';
+import { Route, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Observable, Subscription, of } from 'rxjs';
+import { privateDecrypt } from 'crypto';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 //import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
@@ -14,6 +18,9 @@ import { Observable, Subscription, of } from 'rxjs';
   standalone: true,
   imports: [
     FormsModule,
+    RouterLink,
+    RouterLinkActive,
+    //ToastrModule, // ToastrModule added
     //BrowserModule,
     //BsDropdownModule,
     //BrowserAnimationsModule,
@@ -34,7 +41,11 @@ export class NavComponent implements OnInit {
 
   currentUser: User | null = null;
 
-  constructor(public accountService: AccountService) {}
+  constructor(
+    public accountService: AccountService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     console.log('ngOnInit called');
@@ -54,18 +65,23 @@ export class NavComponent implements OnInit {
   // }
 
   login() {
-    debugger;
+    //debugger;
     this.accountService.login(this.model).subscribe({
-      next: (response) => {
-        console.log(response);
-        //this.loggedIn = true;
-      },
-      error: (error) => console.log(error),
+      next: (_) => this.router.navigateByUrl('/members'),
+      error: (error) => this.toastr.error(error.error),
+      //console.log(error),
+      // next: (response) => {
+      //   //console.log(response);
+      //   this.router.navigateByUrl('/members');
+      //   //this.loggedIn = true;
+      // },
+      // error: (error) => console.log(error),
     });
   }
 
   logout() {
     this.accountService.logout();
+    this.router.navigateByUrl('/');
     //this.loggedIn = false;
   }
 }

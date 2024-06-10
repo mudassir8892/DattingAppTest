@@ -65,6 +65,16 @@ for create service
 NOTE: The "--dry-run" option means no changes were made.
 ng g s _services/account --skip-tests
 
+Generates a new, generic route guard definition in the given project. 
+ng g g _guards/auth --skip-tests
+
+npm install ngx-toastr@17
+
+add theme
+npm install bootswatch
+
+ng g m _modules/shared --flat   
+
 ===========================================================
 git
 ---

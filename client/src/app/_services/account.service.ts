@@ -25,6 +25,7 @@ export class AccountService {
       map((response: User) => {
         const user = response;
         if (user) {
+          //sessionStorage.setItem('hi',"true");
           localStorage.setItem('user', JSON.stringify(user));
           this.loadCurrentUser();
           //this.currentUserSource.next(user);
@@ -56,12 +57,12 @@ export class AccountService {
     this.currentUserSource.next(null);
   }
 
-  private loadCurrentUser(): void {
+  loadCurrentUser(): void {
     if (isPlatformBrowser(this.platformId)) {
       const userJson = localStorage.getItem('user');
       if (userJson) {
         const user: User = JSON.parse(userJson);
-        console.log('Loaded user from local storage:', user);
+        //console.log('Loaded user from local storage:', user);
         this.currentUserSource.next(user);
       } else {
         console.log('No user found in local storage');

@@ -5,6 +5,7 @@ import { NavComponent } from './nav/nav.component';
 import { AccountService } from './_services/account.service';
 import { User } from './_models/user';
 import { HomeComponent } from './home/home.component';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -24,9 +25,13 @@ export class AppComponent implements OnInit {
     private accountService: AccountService
   ) {}
 
-  ngOnInit(): void {
-    //this.getUsers();
-    this.setCurrentUser();
+  // ngOnInit(): void {
+  //   //this.getUsers();
+  //   this.setCurrentUser();
+  // }
+
+  ngOnInit() {
+    this.accountService.loadCurrentUser();
   }
 
   // getUsers() {
@@ -37,15 +42,15 @@ export class AppComponent implements OnInit {
   //   });
   // }
 
-  setCurrentUser() {
-    const userString = localStorage.getItem('user');
-    //console.log(userString);
-    if (!userString) return;
-    //console.log(userString);
-    const user: User = JSON.parse(userString);
-    //console.log(userString);
-    //debugger;
-    this.accountService.setCurrentUser(user);
-    console.log(user);
-  }
+  // setCurrentUser() {
+  //   const userString = localStorage.getItem('user');
+  //   //console.log(userString);
+  //   if (!userString) return;
+  //   //console.log(userString);
+  //   const user: User = JSON.parse(userString);
+  //   //console.log(userString);
+  //   //debugger;
+  //   this.accountService.setCurrentUser(user);
+  //   console.log(user);
+  // }
 }
