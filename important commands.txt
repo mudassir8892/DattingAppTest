@@ -75,6 +75,12 @@ npm install bootswatch
 
 ng g m _modules/shared --flat   
 
+------------------------------
+https://localhost:5008/api/Account/login
+https://localhost:5008/api/account/register
+https://localhost:5008/api/buggy/server-error
+------------------------------
+
 ===========================================================
 git
 ---

@@ -1,0 +1,17 @@
+<h4>
+  Internal server error - refreshing the page will make the error disappear
+</h4>
+<ng-container *ngIf="error">
+  <h5 class="text-danger">Error. {{ error.message }}</h5>
+  <p>Note: If you are seeing this then angular is probably bot to blame</p>
+  <p>went to do next?</p>
+  <ol>
+    <li>
+      open chrome dev tools! Then check failing request in the network tab
+    </li>
+    <li>Examine the request URl - what API endpoint are you requesting ?</li>
+  </ol>
+  <code class="mt-5" style="background-color: whitesmoke">
+    {{ error.details }}
+  </code>
+</ng-container>
