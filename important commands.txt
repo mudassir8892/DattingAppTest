@@ -28,6 +28,7 @@ dotnet ef migrations add usernamerequired
 dotnet ef migrations remove
 
 dotnet dev-certs https --trust 
+dotnet add package AutoMapper
 
 
 https://www.nuget.org/packages/dotnet-ef/7.0.9
@@ -41,6 +42,11 @@ dotnet ef migrations add InitialCreate -o Data/Migrations
 dotnet build
 dotnet ef database -h
 dotnet ef database update
+
+dotnet ef database drop
+
+dotnet ef migrations add ExtendedUserEntity
+dotnet ef migrations remove
 
 dotnet new list
 
@@ -57,7 +63,7 @@ ng g --help
 ng g c nav --dry-run
 ng g c nav --skip-tests  --dry-run 
 ng g c nav --skip-tests
-ng server
+ng serve
 
 ng g s _services/account --skip-tests --dry-run 
 CREATE src/app/_services/account.service.ts (145 bytes)
